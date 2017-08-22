@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/22/HomeBrew-install-plugins/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/22/Gitlab-500-error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lin">
@@ -294,7 +294,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/22/HomeBrew-install-plugins/" itemprop="url">HomeBrew install plugins</a></h1>
+                <a class="post-title-link" href="/2017/08/22/Gitlab-500-error/" itemprop="url">Gitlab 500 error</a></h1>
         
 
         <div class="post-meta">
@@ -306,7 +306,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T14:07:35+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T19:57:35+08:00">
                 2017-08-22
               </time>
             
@@ -317,6 +317,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/gitlab/" itemprop="url" rel="index">
+                    <span itemprop="name">gitlab</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -325,9 +347,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/08/22/HomeBrew-install-plugins/#comments" itemprop="discussionUrl">
+                <a href="/2017/08/22/Gitlab-500-error/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/08/22/HomeBrew-install-plugins/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/08/22/Gitlab-500-error/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -357,12 +379,14 @@
       
         
           
-            <h2 id="1-Set-default-app-for-all-files-particular-file-type-through-terminal-in-OS-X"><a href="#1-Set-default-app-for-all-files-particular-file-type-through-terminal-in-OS-X" class="headerlink" title="1.Set default app for all files particular file type through terminal in OS X"></a>1.Set default app for all files particular file type through terminal in OS X</h2><p>homebrew install duti</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install duti</div></pre></td></tr></table></figure>
-<p>get app id</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">osascript -e 'id of app "$appName"'</div></pre></td></tr></table></figure>
-<p>set default app</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">duti -s $app-id .$file-type all</div></pre></td></tr></table></figure>
+            <h1 id="Gitlab-error-500"><a href="#Gitlab-error-500" class="headerlink" title="Gitlab error 500"></a>Gitlab error 500</h1><p>In <code>/var/log/gitlab/gitlab-rails/application.log</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Completed 500 Internal Server Error in 63ms</div><div class="line"></div><div class="line">NoMethodError (undefined method `reduce&apos; for false:FalseClass):</div><div class="line">  app/models/commit.rb:26:in `diff_line_count&apos;</div><div class="line">  app/controllers/projects/merge_requests_controller.rb:94:in `new&apos;</div></pre></td></tr></table></figure>
+<p>we can find some solutions through Google.com.But sometime we need to get it from logs.Let’s look into more logs.</p>
+<p>In <code>githost.log</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">August 22, 2017 17:14 -&gt; ERROR -&gt; Command failed [128]: /opt/gitlab/embedded/bin/git --git-dir=/var/opt/gitlab/git-data/gitlab-satellites/java/project/.git checkout -b __parking_branch</div><div class="line"></div><div class="line">fatal: Not a git repository: &apos;/var/opt/gitlab/git-data/gitlab-satellites/java/project/.git&apos;</div></pre></td></tr></table></figure>
+<p>It tell us that it’s not a git repository..It’s clear.And I found it’s really not a git repository.Then I fixed it.</p>
+<p>1.Delete this project </p>
+<p>2.ran a <code>git clone ~/repositories/&lt;upstream_repo&gt;/&lt;repo_name&gt;.git</code></p>
 
           
         
@@ -406,12 +430,12 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/22/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/22/HomeBrew-install-plugins/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lin">
@@ -430,7 +454,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/22/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2017/08/22/HomeBrew-install-plugins/" itemprop="url">HomeBrew install plugins</a></h1>
         
 
         <div class="post-meta">
@@ -442,7 +466,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T14:03:27+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T14:07:35+08:00">
                 2017-08-22
               </time>
             
@@ -453,6 +477,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/homebrew/" itemprop="url" rel="index">
+                    <span itemprop="name">homebrew</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -461,9 +507,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/08/22/hello-world/#comments" itemprop="discussionUrl">
+                <a href="/2017/08/22/HomeBrew-install-plugins/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/08/22/hello-world/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/08/22/HomeBrew-install-plugins/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -493,15 +539,12 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <h2 id="1-Set-default-app-in-OS-X"><a href="#1-Set-default-app-in-OS-X" class="headerlink" title="1.Set default app in OS X"></a>1.Set default app in OS X</h2><p>homebrew install duti</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install duti</div></pre></td></tr></table></figure>
+<p>get app id</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">osascript -e 'id of app "$appName"'</div></pre></td></tr></table></figure>
+<p>set default app</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">duti -s $app-id .$file-type all</div></pre></td></tr></table></figure>
 
           
         
@@ -590,13 +633,22 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
 
           
             
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
