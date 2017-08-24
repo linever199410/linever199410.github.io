@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Gitlab 500 error]]></title>
+    <url>%2F2017%2F08%2F22%2FGitlab-error-500%2F</url>
+    <content type="text"><![CDATA[Gitlab error 500In /var/log/gitlab/gitlab-rails/application.log 12345Completed 500 Internal Server Error in 63msNoMethodError (undefined method `reduce&apos; for false:FalseClass): app/models/commit.rb:26:in `diff_line_count&apos; app/controllers/projects/merge_requests_controller.rb:94:in `new&apos; we can find some solutions through Google.com.But sometime we need to get it from logs.Let’s look into more logs. In githost.log 123August 22, 2017 17:14 -&gt; ERROR -&gt; Command failed [128]: /opt/gitlab/embedded/bin/git --git-dir=/var/opt/gitlab/git-data/gitlab-satellites/java/project/.git checkout -b __parking_branchfatal: Not a git repository: &apos;/var/opt/gitlab/git-data/gitlab-satellites/java/project/.git&apos; It tell us that it’s not a git repository..It’s clear.And I found it’s really not a git repository.Then I fixed it. 1.Delete this project 2.ran a git clone ~/repositories/&lt;upstream_repo&gt;/&lt;repo_name&gt;.git]]></content>
+      <categories>
+        <category>gitlab</category>
+      </categories>
+      <tags>
+        <tag>gitlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HomeBrew install plugins]]></title>
+    <url>%2F2017%2F08%2F22%2FHomeBrew-install-plugins%2F</url>
+    <content type="text"><![CDATA[1.Set default app in OS Xhomebrew install duti 1brew install duti get app id 1osascript -e 'id of app "$appName"' set default app 1duti -s $app-id .$file-type all]]></content>
+      <categories>
+        <category>homebrew</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
+        <tag>homebrew</tag>
+      </tags>
+  </entry>
+</search>
