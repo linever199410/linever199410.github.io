@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hello word</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-08-22T16:09:42.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>lin</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gitlab 500 error</title>
+    <link href="http://yoursite.com/2017/08/22/Gitlab-error-500/"/>
+    <id>http://yoursite.com/2017/08/22/Gitlab-error-500/</id>
+    <published>2017-08-22T11:57:35.000Z</published>
+    <updated>2017-08-22T16:09:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Gitlab-error-500"><a href="#Gitlab-error-500" class="headerlink" title="Gitlab error 500"></a>Gitlab error 500</h1><p>In <code>/var/log/gitlab/gitlab-rails/application.log</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Completed 500 Internal Server Error in 63ms</div><div class="line"></div><div class="line">NoMethodError (undefined method `reduce&apos; for false:FalseClass):</div><div class="line">  app/models/commit.rb:26:in `diff_line_count&apos;</div><div class="line">  app/controllers/projects/merge_requests_controller.rb:94:in `new&apos;</div></pre></td></tr></table></figure>
+<p>we can find some solutions through Google.com.But sometime we need to get it from logs.Let’s look into more logs.</p>
+<p>In <code>githost.log</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">August 22, 2017 17:14 -&gt; ERROR -&gt; Command failed [128]: /opt/gitlab/embedded/bin/git --git-dir=/var/opt/gitlab/git-data/gitlab-satellites/java/project/.git checkout -b __parking_branch</div><div class="line"></div><div class="line">fatal: Not a git repository: &apos;/var/opt/gitlab/git-data/gitlab-satellites/java/project/.git&apos;</div></pre></td></tr></table></figure>
+<p>It tell us that it’s not a git repository..It’s clear.And I found it’s really not a git repository.Then I fixed it.</p>
+<p>1.Delete this project </p>
+<p>2.ran a <code>git clone ~/repositories/&lt;upstream_repo&gt;/&lt;repo_name&gt;.git</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Gitlab-error-500&quot;&gt;&lt;a href=&quot;#Gitlab-error-500&quot; class=&quot;headerlink&quot; title=&quot;Gitlab error 500&quot;&gt;&lt;/a&gt;Gitlab error 500&lt;/h1&gt;&lt;p&gt;In &lt;code&gt;/var/
+    
+    </summary>
+    
+      <category term="gitlab" scheme="http://yoursite.com/categories/gitlab/"/>
+    
+    
+      <category term="gitlab" scheme="http://yoursite.com/tags/gitlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HomeBrew install plugins</title>
+    <link href="http://yoursite.com/2017/08/22/HomeBrew-install-plugins/"/>
+    <id>http://yoursite.com/2017/08/22/HomeBrew-install-plugins/</id>
+    <published>2017-08-22T06:07:35.000Z</published>
+    <updated>2017-08-22T15:51:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-Set-default-app-in-OS-X"><a href="#1-Set-default-app-in-OS-X" class="headerlink" title="1.Set default app in OS X"></a>1.Set default app in OS X</h2><p>homebrew install duti</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install duti</div></pre></td></tr></table></figure>
+<p>get app id</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">osascript -e 'id of app "$appName"'</div></pre></td></tr></table></figure>
+<p>set default app</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">duti -s $app-id .$file-type all</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-Set-default-app-in-OS-X&quot;&gt;&lt;a href=&quot;#1-Set-default-app-in-OS-X&quot; class=&quot;headerlink&quot; title=&quot;1.Set default app in OS X&quot;&gt;&lt;/a&gt;1.Set defau
+    
+    </summary>
+    
+      <category term="homebrew" scheme="http://yoursite.com/categories/homebrew/"/>
+    
+    
+      <category term="mac" scheme="http://yoursite.com/tags/mac/"/>
+    
+      <category term="homebrew" scheme="http://yoursite.com/tags/homebrew/"/>
+    
+  </entry>
+  
+</feed>
