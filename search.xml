@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MongoDB]]></title>
+    <url>%2F2017%2F09%2F20%2FMongoDB%2F</url>
+    <content type="text"><![CDATA[MongoDB 常用语句搜索模糊搜索 db.getCollection(&#39;room_avail_log&#39;).find({&quot;request.roomAvail&quot;: /205103/}).limit(50) db.getCollection(&#39;static_info_log&#39;).find({&quot;request.hotelActionRequest&quot;: /491626.*Close/}) 倒叙输出 db.getCollection(&#39;room_price_log&#39;).find({}).sort({ $natural: -1 }).limit(10) 查看索引 db.COLLECTION_NAME.getIndexes() 删除删除日期前的数据 db.getCollection(&#39;static_info_log&#39;).deleteMany({&quot;createAt&quot;:{$lte:ISODate(&quot;2017-08-01T00:00:00Z&quot;)}}) 删除日期后的数据 db.getCollection(&#39;static_info_log&#39;).deleteMany({&quot;createAt&quot;:{$gte:ISODate(&quot;2017-08-01T00:00:00Z&quot;)}}) note : 删除无法释放硬盘资源 备份还原备份 mongodump -h host -u user -p pwd -d db --gzip --archive=/data2/backup/db 还原 mongorestore -u user -p pwd -d db --gzip --archive=/data1/backup/db 官方文档]]></content>
+      <categories>
+        <category>MongoDB</category>
+      </categories>
+      <tags>
+        <tag>MongoDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[RabbitMQ]]></title>
+    <url>%2F2017%2F08%2F27%2FRabbitMQ%2F</url>
+    <content type="text"><![CDATA[Split tracking logs of RabbitMQ]]></content>
+      <categories>
+        <category>RabbiMQ</category>
+      </categories>
+      <tags>
+        <tag>RabbiMQ</tag>
+        <tag>Concurrency</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Gitlab 500 error]]></title>
     <url>%2F2017%2F08%2F22%2FGitlab-error-500%2F</url>
     <content type="text"><![CDATA[Gitlab error 500In /var/log/gitlab/gitlab-rails/application.log 12345Completed 500 Internal Server Error in 63msNoMethodError (undefined method `reduce&apos; for false:FalseClass): app/models/commit.rb:26:in `diff_line_count&apos; app/controllers/projects/merge_requests_controller.rb:94:in `new&apos; we can find some solutions through Google.com.But sometime we need to get it from logs.Let’s look into more logs. In githost.log 123August 22, 2017 17:14 -&gt; ERROR -&gt; Command failed [128]: /opt/gitlab/embedded/bin/git --git-dir=/var/opt/gitlab/git-data/gitlab-satellites/java/project/.git checkout -b __parking_branchfatal: Not a git repository: &apos;/var/opt/gitlab/git-data/gitlab-satellites/java/project/.git&apos; It tell us that it’s not a git repository..It’s clear.And I found it’s really not a git repository.Then I fixed it. 1.Delete this project 2.ran a git clone ~/repositories/&lt;upstream_repo&gt;/&lt;repo_name&gt;.git]]></content>

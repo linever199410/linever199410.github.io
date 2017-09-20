@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-22T16:09:42.000Z</updated>
+  <updated>2017-09-20T07:00:21.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MongoDB</title>
+    <link href="http://yoursite.com/2017/09/20/MongoDB/"/>
+    <id>http://yoursite.com/2017/09/20/MongoDB/</id>
+    <published>2017-09-20T06:47:56.000Z</published>
+    <updated>2017-09-20T07:00:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="MongoDB-常用语句"><a href="#MongoDB-常用语句" class="headerlink" title="MongoDB 常用语句"></a>MongoDB 常用语句</h1><h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>模糊搜索</p>
+<p><code>db.getCollection(&#39;room_avail_log&#39;).find({&quot;request.roomAvail&quot;: /205103/}).limit(50)</code></p>
+<p><code>db.getCollection(&#39;static_info_log&#39;).find({&quot;request.hotelActionRequest&quot;: /491626.*Close/})</code></p>
+<p>倒叙输出</p>
+<p><code>db.getCollection(&#39;room_price_log&#39;).find({}).sort({ $natural: -1 }).limit(10)</code></p>
+<p>查看索引</p>
+<p><code>db.COLLECTION_NAME.getIndexes()</code></p>
+<a id="more"></a>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>删除日期前的数据</p>
+<p><code>db.getCollection(&#39;static_info_log&#39;).deleteMany({&quot;createAt&quot;:{$lte:ISODate(&quot;2017-08-01T00:00:00Z&quot;)}})</code></p>
+<p>删除日期后的数据</p>
+<p><code>db.getCollection(&#39;static_info_log&#39;).deleteMany({&quot;createAt&quot;:{$gte:ISODate(&quot;2017-08-01T00:00:00Z&quot;)}})</code></p>
+<p>note :  删除无法释放硬盘资源</p>
+<h2 id="备份还原"><a href="#备份还原" class="headerlink" title="备份还原"></a>备份还原</h2><p>备份</p>
+<p><code>mongodump -h host -u user -p pwd -d db --gzip --archive=/data2/backup/db</code></p>
+<p>还原</p>
+<p><code>mongorestore -u user -p pwd -d db --gzip --archive=/data1/backup/db</code></p>
+<hr>
+<p><a href="https://docs.mongodb.com/manual/" target="_blank" rel="external">官方文档 </a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;MongoDB-常用语句&quot;&gt;&lt;a href=&quot;#MongoDB-常用语句&quot; class=&quot;headerlink&quot; title=&quot;MongoDB 常用语句&quot;&gt;&lt;/a&gt;MongoDB 常用语句&lt;/h1&gt;&lt;h2 id=&quot;搜索&quot;&gt;&lt;a href=&quot;#搜索&quot; class=&quot;headerlink&quot; title=&quot;搜索&quot;&gt;&lt;/a&gt;搜索&lt;/h2&gt;&lt;p&gt;模糊搜索&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;db.getCollection(&amp;#39;room_avail_log&amp;#39;).find({&amp;quot;request.roomAvail&amp;quot;: /205103/}).limit(50)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;db.getCollection(&amp;#39;static_info_log&amp;#39;).find({&amp;quot;request.hotelActionRequest&amp;quot;: /491626.*Close/})&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;倒叙输出&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;db.getCollection(&amp;#39;room_price_log&amp;#39;).find({}).sort({ $natural: -1 }).limit(10)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看索引&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;db.COLLECTION_NAME.getIndexes()&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="MongoDB" scheme="http://yoursite.com/categories/MongoDB/"/>
+    
+    
+      <category term="MongoDB" scheme="http://yoursite.com/tags/MongoDB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RabbitMQ</title>
+    <link href="http://yoursite.com/2017/08/27/RabbitMQ/"/>
+    <id>http://yoursite.com/2017/08/27/RabbitMQ/</id>
+    <published>2017-08-27T12:32:19.000Z</published>
+    <updated>2017-08-27T12:41:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Split-tracking-logs-of-RabbitMQ"><a href="#Split-tracking-logs-of-RabbitMQ" class="headerlink" title="Split tracking logs of RabbitMQ"></a>Split tracking logs of RabbitMQ</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Split-tracking-logs-of-RabbitMQ&quot;&gt;&lt;a href=&quot;#Split-tracking-logs-of-RabbitMQ&quot; class=&quot;headerlink&quot; title=&quot;Split tracking logs of RabbitM
+    
+    </summary>
+    
+      <category term="RabbiMQ" scheme="http://yoursite.com/categories/RabbiMQ/"/>
+    
+    
+      <category term="RabbiMQ" scheme="http://yoursite.com/tags/RabbiMQ/"/>
+    
+      <category term="Concurrency" scheme="http://yoursite.com/tags/Concurrency/"/>
+    
+  </entry>
   
   <entry>
     <title>Gitlab 500 error</title>
